@@ -24,8 +24,8 @@
       <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="Acciones">
-		<th mat-header-cell *matHeaderCellDef></th>
+    <ng-container matColumnDef="Acciones" *ngIf="mostrarBotones">
+		<th mat-header-cell *matHeaderCellDef>Acciones </th>
 		<td mat-cell *matCellDef="let element">
             <button mat-icon-button (click)="editar(element)" >
                 <mat-icon>launch</mat-icon>        

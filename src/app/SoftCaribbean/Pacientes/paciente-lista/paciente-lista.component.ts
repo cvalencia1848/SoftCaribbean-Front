@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { PacienteService } from "../Shared/paciente.service";
 import { Entidad } from '../Models/Respuesta';
 import { Router } from "@angular/router";
@@ -17,7 +17,8 @@ export interface PeriodicElement {
 
 export class PacienteListaComponent implements OnInit{
     displayedColumns: string[] = ['id', 'documento', 'nombres', 'apellidos', 'Acciones'];
-    datosEntidad: Entidad[];
+    @Input() datosEntidad: any[];
+    @Input() mostrarBotones: boolean = false;
 
     
 
@@ -26,6 +27,7 @@ export class PacienteListaComponent implements OnInit{
 
     ngOnInit() {
         this.Refrescar();
+        this.mostrarBotones = true;
     }
 
     
@@ -33,8 +35,7 @@ export class PacienteListaComponent implements OnInit{
     Refrescar() {
         this.pacienteService.ObtenerTodo().subscribe(personas => {
             this.datosEntidad = personas.entidad;
-        }
-    );
+        });
     }
 
     editar(event:any) {

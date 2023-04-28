@@ -26,7 +26,7 @@ export class LayoutComponent {
 
   public sidebarItemsPacientes = [
     {label: 'Personas', icon: 'label', url: "./pacientes"},
-    {label: 'Pacientes', icon: 'label', url: "./pacientes"}
+    {label: 'Pacientes', icon: 'label', url: "./pacientesInforme"}
   ];
 
 

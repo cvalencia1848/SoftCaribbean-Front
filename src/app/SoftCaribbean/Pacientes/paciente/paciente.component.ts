@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Paciente } from "../Models/paciente";
 import { PacienteService } from "../Shared/paciente.service";
 import { Genero } from "../Models/generosLista";
@@ -20,7 +20,7 @@ export class PacienteComponent implements OnInit {
     generos: Genero[];
     datepicker: any;
 
-    constructor(private route: ActivatedRoute, public pacienteService: PacienteService ){}
+    constructor(private route: ActivatedRoute, public pacienteService: PacienteService, private router: Router ){}
 
     ngOnInit() {
         this.entidad = new Paciente();
@@ -54,7 +54,12 @@ export class PacienteComponent implements OnInit {
 
     guardar(){
         this.entidad.idTipoDocumento = 1;
-        debugger;
-        this.pacienteService.ActualizarOGuardar(this.entidad).subscribe();
+        
+        this.pacienteService.ActualizarOGuardar(this.entidad).subscribe( paciente => {
+            this.router.navigate(['/pacientes']);
+        }
+
+        );
+
     }
 }

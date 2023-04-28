@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Respuesta } from '../Models/Respuesta';
 import { Paciente, RespuestaIndividual } from '../Models/paciente';
 import { GenerosLista } from '../Models/generosLista';
+import { RespuestaInforme } from '../Models/pacienteInforme';
 
 
 @Injectable()
@@ -40,5 +41,9 @@ export class PacienteService {
 
     EliminarPaciente(id: number){
         return this.httpClient.delete(this.baseUrl+'/Persona/Eliminar/'+ id);
+    }
+
+    ObtenerTodoPacienteInforme(): Observable<RespuestaInforme>{
+        return this.httpClient.get<RespuestaInforme>(this.baseUrl+'/Persona/ObtenerTodosInforme');
     }
 }

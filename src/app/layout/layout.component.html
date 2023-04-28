@@ -10,15 +10,16 @@
       <a mat-list-item href="#">Medicos Tratantes</a>
     </mat-nav-list> -->
     <mat-nav-list>
-      <mat-list-item *ngFor="let item of sidebarItemsPacientes" [routerLink]="item.url">
-        <mat-icon>{{item.icon}}</mat-icon> {{item.label}}
-      </mat-list-item>
+      <a mat-list-item href="#">Tipo Personas</a>
+      <a mat-list-item href="#">Generos</a>
+      <a mat-list-item href="#">Medicos</a>
+      
     </mat-nav-list>
     <mat-toolbar>Otros</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Pacientes</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <mat-list-item *ngFor="let item of sidebarItemsPacientes" [routerLink]="item.url">
+        <mat-icon>{{item.icon}}</mat-icon> {{item.label}}
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
